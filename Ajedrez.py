@@ -73,3 +73,19 @@ counter = 0
 winner = ''
 game_over = False
 
+#dibujar tablero
+def draw_board():
+    for i in range(32):
+        column = i % 4
+        row = i // 4
+        if row % 2 == 0:
+            if column % 2 == 0:
+                pygame.draw.rect(screen,'light gary',[600-(column* 200),row*100,100,100])
+            else:
+                pygame.draw.rect(screen,'light gary',[700-(column* 200),row*100,100,100])
+            pygame.draw.rect(screen,'gray',[0,800,width,100])
+            pygame.draw.rect(screen,'gold',[0,800,width,100],5)
+            pygame.draw.rect(screen,'gold',[800,0,100,height],5)
+            status_text = ['White: Selecciona una pieza para mover', 'White: Selecciona el destino',
+                           'Black: Selecciona una pieza para mover', 'Black: Selecciona el destino']
+                          
