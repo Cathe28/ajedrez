@@ -115,3 +115,27 @@ def draw_pieces():
         if turn_step < 2:
             if selection == i:
                 pygame.draw.rect(screen, 'blue', (black_locations[i][0] * 100+1, black_locations[i][1] * 100 + 1,100,100), 5)
+
+#chequear que las pieza tengas opciones validas en el tablero
+def check_options(pieces,locations,turn):
+    moves_list = []
+    all_moves = []
+    for i in range(len(pieces)):
+        location = locations[i]
+        piece = pieces[i]
+        if piece == 'pawn':
+            moves_list = check_pawn(location,turn)
+        elif piece == 'rook':
+            moves_list = check_rook(location,turn)
+        elif piece == 'bishop':
+            moves_list = check_bishop(location,turn)
+        elif piece == 'queen':
+            moves_list = check_queen(location,turn)
+        elif piece == 'king':
+            moves_list = check_king(location,turn)
+        elif piece == 'knight':
+            moves_list = check_knight(location,turn)
+        all_moves.append(moves_list)
+    return all_moves
+
+                   
